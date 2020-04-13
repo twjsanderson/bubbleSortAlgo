@@ -50,10 +50,15 @@ const bubbleSort1 = (array) => {
  */
 const bubbleSort2 = (array) => {
     
+    // Initialize a stop variable that will be used as 
+    // the stopping point for the inner loop. 
+    // Once an inner cycle is complete the last variable will become the largest number in the array.
+    // We can therefore ignore it and leave it in place, and shorten the area our loop scans for the next
+    // iteration. Hence the array.length - i;
     let stop;
 
-    for (let i = 0; i < array.length; i++){
-        for (let j = 0, stop = array.length - i; j < stop; j++){
+    for (let i = 0; i < array.length; i++) {
+        for (let j = 0, stop = array.length - i; j < stop; j++) {
             if (array[j] > array[j + 1]){
                 swap(array, j, j + 1);
             }
@@ -64,9 +69,9 @@ const bubbleSort2 = (array) => {
 };
 
 
-const array1 = [2,3,1,1,1,5,1];
+const array1 = [2,3,7,6,1];
 console.log('recursive bubble sort: ', bubbleSort1(array1));
 
-const array2 = [2,3,1,1,3,1,5,1];
+const array2 = [5,2,3,4,1];
 console.log('iterative bubble sort: ', bubbleSort2(array2));
 
